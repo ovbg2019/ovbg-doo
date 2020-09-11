@@ -13,6 +13,11 @@ window.onload = function () {
 	// delay variable to set delay for animations after splash screen opens
 	let splashDelay = 0;
 
+	// Access the street view elements
+	const STREET_VIEW = document.querySelector(".streetViewBox");
+	const STREET_VIEW_IFRAME = document.querySelector(".streetViewBox iframe");
+	const STREET_VIEW_CLOSE = document.querySelector("#streetViewClose");
+
 	// Access SVG inside Object by using Object ID and .contentDocument
 	const MAP_SVG = document.querySelector('#svgMapObj').contentDocument;
 
@@ -1267,6 +1272,8 @@ window.onload = function () {
 		});
 	}
 
+
+	// Initial icon load animation
 	TweenMax.staggerTo(MAP_ICONS, 0.5, {
 		transformOrigin: "center center",
 		stagger: 0.1,
@@ -1279,6 +1286,7 @@ window.onload = function () {
 		}
 	})
 
+	// Adding hover animations on the map icons
 	MAP_ICONS.forEach(icon => {
 
 		// icon hover event
@@ -1305,5 +1313,12 @@ window.onload = function () {
 				scale: 1
 			})
 		});
-	})
+	});
+
+
+	// Street view / virtual tour events
+	function toggleStreetView() {
+		STREET_VIEW.classList.toggle('expanded');
+	}
+	STREET_VIEW.addEventListener("click", toggleStreetView);
 };
