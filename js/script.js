@@ -1267,13 +1267,33 @@ window.onload = function () {
 		});
 	}
 
+	TweenMax.staggerTo(MAP_ICONS, 0.5, {
+		transformOrigin: "center center",
+		stagger: 0.1,
+		scale: 1.2,
+		onComplete: function () {
+			TweenMax.staggerTo(MAP_ICONS, 0.5, {
+				stagger: 0.1,
+				scale: 1
+			})
+		}
+	})
+
 	MAP_ICONS.forEach(icon => {
 
 		// icon hover event
 		icon.addEventListener("mouseenter", () => {
-			TweenMax.set(icon, {
-				transformOrigin: "bottom"
-			})
+			if (icon.getAttribute("id") == "memory_gazebo_icon") {
+				TweenMax.set(icon, {
+					transformOrigin: "center",
+					cursor: "pointer"
+				})
+			} else {
+				TweenMax.set(icon, {
+					transformOrigin: "bottom",
+					cursor: "pointer"
+				})
+			}
 			TweenMax.to(icon, 0.2, {
 				scale: 1.1
 			})
