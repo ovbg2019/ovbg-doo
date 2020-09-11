@@ -872,6 +872,11 @@ footer img {
 	#splashLogo {
 		width: 50%;
 	}
+
+	/* Icon animation classes for desktop */
+	.mouseHover {
+		transform: scale(1.5);
+	}
 }
 
 /* Extra large devices (large laptops and desktops, 1200px and up) */

@@ -1172,8 +1172,8 @@ window.onload = function () {
 			backgroundColor: 'rgba(247, 242, 219, 1)',
 			onComplete: function () {
 				TOP_BAR.style.backgroundColor = 'rgba(247, 242, 219, 1)';
-      }
-    });
+			}
+		});
 
 		PATH_FINDER.classList.remove('hidden');
 		TweenMax
@@ -1191,17 +1191,17 @@ window.onload = function () {
 								PATH_FINDER.classList.add('hidden');
 								PATH_FINDER.style.opacity = 1;
 								PATH_FINDER.style.top = "10vh";
-                TweenMax.to(TOP_BAR_BODY, 0.5, {
-                  backgroundColor: 'rgba(247, 242, 219, 0.65)',
-                  onComplete: function () {
-                    TOP_BAR.style.backgroundColor = 'rgba(247, 242, 219, 0.65)';
-                  }
-                });
+								TweenMax.to(TOP_BAR_BODY, 0.5, {
+									backgroundColor: 'rgba(247, 242, 219, 0.65)',
+									onComplete: function () {
+										TOP_BAR.style.backgroundColor = 'rgba(247, 242, 219, 0.65)';
+									}
+								});
 							}
 						});
 				}
-      });
-      
+			});
+
 	}
 	// dropdown animation to open
 	function openDropDown() {
@@ -1229,7 +1229,7 @@ window.onload = function () {
 	// dropdown animation to close
 	function closeDropDown() {
 		TweenMax.to(TOP_BAR_BODY, 0.5, {
-      delay: 0.5,
+			delay: 0.5,
 			backgroundColor: 'rgba(247, 242, 219, 0.65)',
 			onComplete: function () {
 				TOP_BAR.style.backgroundColor = 'rgba(247, 242, 219, 0.65)';
@@ -1266,4 +1266,24 @@ window.onload = function () {
 			stroke: '#f7f2db',
 		});
 	}
+
+	MAP_ICONS.forEach(icon => {
+
+		// icon hover event
+		icon.addEventListener("mouseenter", () => {
+			TweenMax.set(icon, {
+				transformOrigin: "bottom"
+			})
+			TweenMax.to(icon, 0.2, {
+				scale: 1.1
+			})
+		});
+
+		// icon hover out event
+		icon.addEventListener("mouseleave", () => {
+			TweenMax.to(icon, 0.2, {
+				scale: 1
+			})
+		});
+	})
 };
