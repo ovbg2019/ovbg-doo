@@ -615,6 +615,10 @@ footer img {
 	right: 0;
 }
 
+.streetViewBox {
+	display: none;
+}
+
 /* portrait tablets and large phones */
 @media only screen and (min-width: 600px) {
 	section {
@@ -880,6 +884,7 @@ footer img {
 
 	/* StreetView */
 	.streetViewBox {
+		display: block;
 		position: fixed;
 		border-radius: 10px;
 		bottom: 2vh;
