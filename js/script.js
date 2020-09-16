@@ -670,8 +670,10 @@ window.onload = function () {
 			// Hide with the path finder menu
 			closeDropDown();
 
-			//Zooms outs
-			mapZoomOut(92);
+			if (window.innerWidth < 769) {
+				//Zooms outs
+				mapZoomOut(92);
+			}
 
 			//CloseInfoPanel or minimized
 			closeInfoPanel();
@@ -737,7 +739,7 @@ window.onload = function () {
 	// selects the icons from the map using their IDs
 	// goes through a loop to open the specific tab
 	for (let i in MAP_ICONS) {
-		MAP_ICONS[i].onclick = function () {
+		MAP_ICONS[i].onclick = function (e) {
 			//Clears Current/Active Path/Icon Animation
 			REMOVE_CURRENT_PATH_ICON_ANIMATION();
 			closeInfoPanel();
@@ -746,7 +748,7 @@ window.onload = function () {
 			// reset destination to prevent animation bug
 			destination = '';
 			setContent();
-			openInfoPanel();
+			openInfoPanel(e.clientX);
 		};
 	}
 	// minimizing/maximizing the infoPanel on clicking the title bar
@@ -755,8 +757,8 @@ window.onload = function () {
 	};
 
 	// closing the tab on close button click
-	CLOSE_BUTTON.onclick = function () {
-		closeInfoPanel();
+	CLOSE_BUTTON.onclick = function (e) {
+		closeInfoPanel(e.target);
 	};
 
 	// Functions to reset the appearance of the tabs
@@ -784,10 +786,24 @@ window.onload = function () {
 	}
 
 	// this function animates the infoPanel and its contents when it opens up
-	function openInfoPanel() {
+	function openInfoPanel(mousePosX) {
 		// animating the panel while opening
 		if (infoPanelState < 2) {
 			if (infoPanelState === 0) {
+
+				// infoPanel opening on bigger display
+				if (window.innerWidth > 769) {
+					if (mousePosX < window.innerWidth / 2) {
+						TweenMax.to('#infoPanel', 0.55, {
+							left: mousePosX + 75,
+						})
+					} else {
+						TweenMax.to('#infoPanel', 0.55, {
+							left: window.innerWidth + (mousePosX - window.innerWidth) - INFO_PANEL.clientWidth - 75
+						})
+					}
+				}
+
 				TweenMax.fromTo(
 					'#infoPanel',
 					0.75, {
@@ -824,30 +840,34 @@ window.onload = function () {
 	}
 
 	// this function animates the infoPanel and its contents when it closes
-	function closeInfoPanel() {
+	function closeInfoPanel(target) {
 		// animating the info panel while closing
 		if (infoPanelState > 0) {
-			TweenMax.fromTo(
-				'#infoPanel',
-				1, {
-					bottom: INFO_PANEL.style.bottom
-				}, {
-					bottom: '-100vh',
-					onComplete: function () {
-						resetTabAppearance();
-						// scaling the map back to full height
-						// if condition to only make it work on mobile
-						if (window.innerWidth < 769) {
-							// zooming out to the full map
-							console.log(destination);
-							if (destination) {
-								mapZoomOut(92);
-								pathZoomIn(currentLocation, destination);
-							} else mapZoomOut(92);
+			if (window.innerWidth > 769 && !target) {
+				resetTabAppearance();
+			} else {
+				TweenMax.fromTo(
+					'#infoPanel',
+					1, {
+						bottom: INFO_PANEL.style.bottom
+					}, {
+						bottom: '-100vh',
+						onComplete: function () {
+							resetTabAppearance();
+							// scaling the map back to full height
+							// if condition to only make it work on mobile
+							if (window.innerWidth < 769) {
+								// zooming out to the full map
+								console.log(destination);
+								if (destination) {
+									mapZoomOut(92);
+									pathZoomIn(currentLocation, destination);
+								} else mapZoomOut(92);
+							}
 						}
 					}
-				}
-			);
+				);
+			}
 
 			// setting state of the info panel to CLOSED
 			infoPanelState = 0;
