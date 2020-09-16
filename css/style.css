@@ -615,7 +615,8 @@ footer img {
 	right: 0;
 }
 
-.streetViewBox {
+.streetViewBox,
+.sideBar {
 	display: none;
 }
 
@@ -979,6 +980,26 @@ footer img {
 
 	.streetViewBox.expanded #streetViewClose {
 		opacity: 1;
+	}
+
+	.sideBar {
+		display: block;
+		height: 100vh;
+		width: 25vw;
+		padding: 30px;
+		position: fixed;
+		left: 0;
+		top: 0;
+		background: var(--paths);
+		box-shadow: 5px 5px 10px rgba(56, 56, 56, 0.3);
+	}
+
+	.sideBar div {
+		margin: 0 0 30px;
+	}
+
+	.sideBar a {
+		display: block;
 	}
 }
 
