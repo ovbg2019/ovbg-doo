@@ -665,12 +665,68 @@ footer img {
 	border-radius: 0 50% 50% 0;
 }
 
+.sideBar h4 {
+	font-family: 'TitleFont', Arial, Helvetica, sans-serif;
+	color: var(--concrete-path);
+	padding-left: 5px;
+}
+
 .sideBar div {
-	margin: 0 0 30px;
+	margin: 10px 0 30px;
+	padding: 20px;
+	background-color: rgba(255, 255, 255, 0.5);
+	border-radius: 10px;
+}
+
+.sideBar p {
+	font-family: 'ParaFont', Arial, Helvetica, sans-serif;
+}
+
+.sideBar .legend {
+	background-color: rgba(136, 176, 134, 0.7);
+}
+
+.sideBar .legend p {
+	display: flex;
+	justify-content: left;
+	align-items: center;
+}
+
+.sideBar .legend img {
+	margin-right: 10px;
+	height: auto;
+	width: 30px;
+}
+
+.sideBar .links {
+	margin-bottom: 0;
+	padding: 0;
+	background-color: transparent;
 }
 
 .sideBar a {
-	display: block;
+	display: inline-flex;
+	width: 100%;
+	font-family: 'ParaFont', Arial, Helvetica, sans-serif;
+	text-decoration: none;
+	color: var(--concrete-path);
+	margin: 5px 0;
+	padding: 10px 20px;
+	background-color: rgba(255, 255, 255, 0.5);
+	border-radius: 10px;
+	align-items: center;
+	transition: 0.2s;
+}
+
+.sideBar a:hover {
+	transform: scale(1.05);
+	background-color: rgba(212, 212, 212, 0.5);
+}
+
+.sideBar a img {
+	margin-left: auto;
+	height: 18px;
+	width: auto;
 }
 
 /* portrait tablets and large phones */
