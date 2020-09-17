@@ -660,9 +660,19 @@ footer img {
 	pointer-events: none;
 }
 
-#sideBarClose.expanded  {
+#sideBarClose.expanded {
 	left: 85vw;
 	border-radius: 0 50% 50% 0;
+}
+
+.sideBar .sideBarLogo {
+	background: transparent;
+	text-align: center;
+	padding: 0;
+}
+
+.sideBar .sideBarLogo img {
+	width: 70%;
 }
 
 .sideBar h4 {
@@ -783,7 +793,7 @@ footer img {
 		top: 84vh;
 	}
 
-	#sideBarClose.expanded  {
+	#sideBarClose.expanded {
 		left: 50vw;
 	}
 }
@@ -1038,15 +1048,18 @@ footer img {
 		transform: translate(-50%, -50%);
 		border-radius: 10px;
 		box-shadow: 5px 5px 10px rgba(56, 56, 56, 0.4),
-		-5px -5px 10px rgba(56, 56, 56, 0.4);
+			-5px -5px 10px rgba(56, 56, 56, 0.4);
 		pointer-events: none;
 		transition: 0.5s;
 	}
-	
+
 	.streetViewBox.expanded {
+		bottom: 0;
+		left: 0;
 		height: 100vh;
 		width: 100vw;
 		box-shadow: none;
+		cursor: unset;
 	}
 
 	.streetViewBox.expanded iframe {
@@ -1073,12 +1086,12 @@ footer img {
 		text-align: center;
 		transition: 0.4s;
 	}
-	
+
 	.streetViewBox:hover h2 {
 		opacity: 1;
 		transition: 0.5s;
 	}
-	
+
 	.streetViewBox.expanded h2 {
 		opacity: 0;
 		width: 10%;
@@ -1096,7 +1109,7 @@ footer img {
 		filter: drop-shadow(1px 1px 1px #383838);
 		transition: 1s;
 	}
-	
+
 	#streetViewClose:hover {
 		transform: scale(1.1);
 	}
@@ -1104,6 +1117,7 @@ footer img {
 	.streetViewBox.expanded #streetViewClose {
 		opacity: 1;
 	}
+
 
 	.sideBar {
 		width: 25vw;
@@ -1115,8 +1129,16 @@ footer img {
 		top: calc(100vh - 190px);
 	}
 
-	#sideBarClose.expanded  {
+	#sideBarClose.expanded {
 		left: 25vw;
+	}
+
+	.streetViewBox:hover~#sideBarClose {
+		top: calc(100vh - 290px);
+	}
+
+	.streetViewBox.expanded:hover~#sideBarClose {
+		top: 93vh;
 	}
 }
 
