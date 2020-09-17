@@ -18,6 +18,10 @@ window.onload = function () {
 	const STREET_VIEW_IFRAME = document.querySelector(".streetViewBox iframe");
 	const STREET_VIEW_CLOSE = document.querySelector("#streetViewClose");
 
+	// SideBar Elements
+	const SIDE_BAR = document.querySelector(".sideBar");
+	const SIDE_BAR_CLOSE = document.querySelector("#sideBarClose");
+
 	// Access SVG inside Object by using Object ID and .contentDocument
 	const MAP_SVG = document.querySelector('#svgMapObj').contentDocument;
 
@@ -1341,4 +1345,11 @@ window.onload = function () {
 		STREET_VIEW.classList.toggle('expanded');
 	}
 	STREET_VIEW.addEventListener("click", toggleStreetView);
+
+
+	// SIDE BAR FUNCTION AND EVENTS
+	SIDE_BAR_CLOSE.addEventListener("click", function (e) {
+		SIDE_BAR.classList.toggle("expanded");
+		e.target.classList.toggle("expanded");
+	});
 };
