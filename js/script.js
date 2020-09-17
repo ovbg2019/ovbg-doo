@@ -680,7 +680,7 @@ window.onload = function () {
 			}
 
 			//CloseInfoPanel or minimized
-			closeInfoPanel();
+			closeInfoPanel(1);
 		}
 	});
 

@@ -195,7 +195,7 @@ header {
 	border-bottom-right-radius: 10px;
 	border: 1px solid var(--concrete-path);
 	font-family: "ButtonFont";
-	z-index: 800;
+	z-index: 198;
 	font-size: 3vh;
 }
 
