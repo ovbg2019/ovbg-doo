@@ -693,19 +693,22 @@ footer img {
 }
 
 .sideBar .legend {
-	background-color: rgba(136, 176, 134, 0.7);
+	background-color: rgba(136, 176, 134, 1);
 }
 
 .sideBar .legend p {
 	display: flex;
 	justify-content: left;
 	align-items: center;
+	font-size: 20px;
+	font-family: 'LinkFont', Arial, Helvetica, sans-serif;
+
 }
 
 .sideBar .legend img {
-	margin-right: 10px;
+	margin-right: 20px;
 	height: auto;
-	width: 30px;
+	width: 48px;
 }
 
 .sideBar .links {
