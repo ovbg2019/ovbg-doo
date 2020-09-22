@@ -690,6 +690,7 @@ footer img {
 
 .sideBar p {
 	font-family: 'ParaFont', Arial, Helvetica, sans-serif;
+	line-height: 125%;
 }
 
 .sideBar .legend {
@@ -702,7 +703,7 @@ footer img {
 	align-items: center;
 	font-size: 20px;
 	font-family: 'LinkFont', Arial, Helvetica, sans-serif;
-
+	color: var(--concrete-path)
 }
 
 .sideBar .legend img {
@@ -712,7 +713,6 @@ footer img {
 }
 
 .sideBar .links {
-	margin-bottom: 0;
 	padding: 0;
 	background-color: transparent;
 }
@@ -735,10 +735,31 @@ footer img {
 	background-color: rgba(212, 212, 212, 0.5);
 }
 
-.sideBar a img {
+.sideBar .links a img {
 	margin-left: auto;
 	height: 18px;
 	width: auto;
+}
+
+.sideBar .collab {
+	background-color: rgba(255, 255, 255, 1);
+	/* margin-bottom: 0; */
+}
+
+.sideBar .collab a {
+	padding: 00px 10px;
+	background-color: transparent;
+	display: flex;
+	justify-content: center;
+}
+
+.sideBar .collab p {
+	padding: 00px 10px;
+	margin-top: 20px;
+}
+
+.sideBar .collab img {
+	width: 70%;
 }
 
 /* portrait tablets and large phones */
