@@ -760,6 +760,7 @@ footer img {
 
 .sideBar .collab img {
 	width: 70%;
+	height: auto;
 }
 
 /* portrait tablets and large phones */
